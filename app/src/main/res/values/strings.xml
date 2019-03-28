@@ -92,5 +92,8 @@
     </string>
     <string name="privacy_policy_string">Kebijakan Privasi</string>
     <string name="app_ppolicy"><![CDATA[Syarat & Ketentuan]]></string>
+    <string name="title_activity_splash_screen">SplashScreenActivity</string>
+    <string name="actsplash_string_titledesc">Aplikasi Diagnosis Penyakit Padi</string>
+    <string name="actsplash_string_btnlanjut">LANJUT</string>
     <!-- -->
 </resources>

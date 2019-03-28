@@ -6,15 +6,14 @@
  * This file is patented by any copyright law
  */
 
-package id.kenshiro.app.panri
+package id.kenshiro.app.panri.activity.splashScreen.api
 
-import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Context
+import com.mylexz.utils.SimpleDiskLruCache
+import java.io.File
+import java.io.IOException
 
-class MainActivity : AppCompatActivity() {
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-    }
+interface CreateCache {
+    @Throws(IOException::class)
+    fun create(dir: File, ctx: Context?, diskCache: SimpleDiskLruCache)
 }

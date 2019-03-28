@@ -6,15 +6,11 @@
  * This file is patented by any copyright law
  */
 
-package id.kenshiro.app.panri
+package id.kenshiro.app.panri.plugin
 
-import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
+import kotlinx.coroutines.Dispatchers
+import kotlin.coroutines.CoroutineContext
 
-class MainActivity : AppCompatActivity() {
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-    }
+open class CoroutineContextProvider {
+    open val main: CoroutineContext by lazy { Dispatchers.Main }
 }

@@ -6,15 +6,11 @@
  * This file is patented by any copyright law
  */
 
-package id.kenshiro.app.panri
+package id.kenshiro.app.panri.api
 
-import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Context
 
-class MainActivity : AppCompatActivity() {
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-    }
+interface CheckConnectionApi {
+    @Throws(Exception::class)
+    fun isConnected(ctx: Context?, timeOut: Int, url: String = "http://google.com"): Boolean
 }

@@ -6,15 +6,14 @@
  * This file is patented by any copyright law
  */
 
-package id.kenshiro.app.panri
+package id.kenshiro.app.panri.activity.splashScreen.model
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 
-class MainActivity : AppCompatActivity() {
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-    }
+interface SplashScreenModel {
+    fun onStartUi()
+    fun onUpdatedTextProgress(text: String)
+    fun onLoadFailed(ex: Throwable)
+    fun onLoadingFinished(isFirstUsage: Boolean)
+    fun onFinished(packData: Bundle)
 }

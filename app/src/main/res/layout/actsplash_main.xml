@@ -1,0 +1,103 @@
+<!--
+    Copyright @2019 HOPEProjects <hopeproject809@gmail.com>
+
+    UI Design by Roman Aqviriyoso
+    Graphic Art Design by Roman Aqviriyoso
+
+    Coded by Alexzander Purwoko Widiantoro <purwoko908@gmail.com>
+
+    This file is a part of PANRI Android Application
+
+    Except @author, you must not be able to modify, copying, change this file, because its closed source programs
+    This file is patented by any copyright law
+-->
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        tools:context=".activity.splashScreen.SplashScreenActivity">
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/actsplash_dimen_margintopimg"
+            android:gravity="center"
+            android:orientation="vertical">
+
+        <ImageView
+                android:id="@+id/actsplash_id_imgView"
+                android:layout_width="180dp"
+                android:layout_height="180dp"
+                android:layout_marginTop="24dp"
+                android:adjustViewBounds="true"
+                android:foregroundGravity="center"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_launcher" tools:ignore="ContentDescription"/>
+
+        <TextView
+                android:id="@+id/actsplash_id_txtjudul"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="8dp"
+                android:gravity="center_horizontal"
+                android:text="@string/app_name"
+                android:textAllCaps="true"
+                android:textColor="#000000"
+                android:textSize="40sp"
+                android:textStyle="bold"/>
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center"
+                android:text="@string/actsplash_string_titledesc"
+                android:textColor="#000000"
+                android:textSize="20sp"/>
+    </LinearLayout>
+
+    <RelativeLayout
+            android:id="@+id/actsplash_id_bawah_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="46dp"
+            android:gravity="center|center_horizontal">
+
+        <Button
+                android:id="@+id/actsplash_id_btnlanjut"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ic_btn_awal_blue"
+                android:gravity="center"
+                android:text="@string/actsplash_string_btnlanjut"
+                android:textColor="@android:color/white"
+                android:textSize="26sp"
+                android:visibility="gone"/>
+
+        <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center_horizontal"
+                android:id="@+id/actsplash_id_linear_indicator">
+
+            <pl.droidsonroids.gif.GifImageView
+                    android:id="@+id/actsplash_id_loadingview"
+                    android:layout_width="@dimen/actsplash_dimen_loading_wh"
+                    android:layout_height="@dimen/actsplash_dimen_loading_wh"
+                    android:src="@drawable/loading"/>
+
+            <TextView
+                    android:layout_marginTop="@dimen/layout_onnotselected_marginleft_20"
+                    android:id="@+id/actsplash_id_txtsplash_indicator"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#FF000000"/>
+        </LinearLayout>
+    </RelativeLayout>
+</RelativeLayout>

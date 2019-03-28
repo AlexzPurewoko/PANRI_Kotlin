@@ -1,0 +1,24 @@
+// Copyright @2019 Alexzander Purwoko Widiantoro
+// This file is Configuration tests
+// Don't Modify this file!!! or test result will be fail!
+
+[TestConfig]
+param1 = "HOPEProject"
+param2 = "Kensiro"
+
+// Our Teams
+[HOPEProject]
+marketing = "Bagus Cahyono"
+contentDataWriter = "Anggi Mundita"
+lead = "Roman Aqviriyoso"
+developerAndSoftEngineer = "Alexzander Purwoko Widiantoro"
+dataEngineer = "Wahyu Catur Pamungkas"
+preceptor1 = "Purwari Puji Rahayu"
+preceptor2 = "Anggoro Rindra Nugroho"
+preceptor3 = "Lian Ratnasari"
+
+// Many companies that give many supports to our
+[Supported]
+param1 = "SMKN 1 Giritontro"
+param2 = "BPP Giriwoyo \"Harjaning Tani\""
+param3 = "BAPPEDA Litbang Wonogiri"

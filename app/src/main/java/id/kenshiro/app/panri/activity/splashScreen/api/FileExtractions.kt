@@ -6,15 +6,13 @@
  * This file is patented by any copyright law
  */
 
-package id.kenshiro.app.panri
+package id.kenshiro.app.panri.activity.splashScreen.api
 
-import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
+import java.io.File
+import java.io.IOException
+import java.io.InputStream
 
-class MainActivity : AppCompatActivity() {
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-    }
+interface FileExtractions {
+    @Throws(IOException::class)
+    fun extractFile(dir: File, source: InputStream)
 }

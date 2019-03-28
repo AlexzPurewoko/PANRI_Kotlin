@@ -6,15 +6,26 @@
  * This file is patented by any copyright law
  */
 
-package id.kenshiro.app.panri
+package id.kenshiro.app.panri.utility
 
-import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
+import android.view.View
 
-class MainActivity : AppCompatActivity() {
+fun View.gone() {
+    visibility = View.GONE
+}
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-    }
+fun View.visible() {
+    visibility = View.VISIBLE
+}
+
+fun View.invisible() {
+    visibility = View.INVISIBLE
+}
+
+fun View.disable() {
+    isEnabled = false
+}
+
+fun View.enable() {
+    isEnabled = true
 }
