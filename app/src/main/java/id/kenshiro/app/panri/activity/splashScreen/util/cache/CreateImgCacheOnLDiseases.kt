@@ -12,9 +12,10 @@ import id.kenshiro.app.panri.params.PublicConfig
 import id.kenshiro.app.panri.plugin.DecodeBitmapHelper
 import java.io.ByteArrayOutputStream
 import java.io.File
+import java.io.FileInputStream
 
 class CreateImgCacheOnLDiseases : CreateCache {
-    override fun create(dir: File, ctx: Context?, diskCache: SimpleDiskLruCache) {
+    override fun create(dir: File, otaUpdatesDisk: File, ctx: Context?, diskCache: SimpleDiskLruCache) {
         if (ctx == null) return
         val roomDb = Room.databaseBuilder(ctx, ListImgDiseaseDb::class.java, PublicConfig.Assets.DB_ASSET_NAME)
         roomDb.enableMultiInstanceInvalidation()
@@ -27,13 +28,22 @@ class CreateImgCacheOnLDiseases : CreateCache {
         for (imageFunc in listImgFunc) {
             val buf = imageFunc.pathImage?.split(",") ?: continue
             val name = buf[0]
-            createImgCache(assetMgr, diskCache, name, sizeImages)
+            createImgCache(assetMgr, otaUpdatesDisk, diskCache, name, sizeImages)
         }
         System.gc()
     }
 
-    private fun createImgCache(assetMgr: AssetManager, diskCache: SimpleDiskLruCache, nameId: String, sizeImages: Int) {
-        val stream = assetMgr.open("${PublicConfig.Assets.LIST_DISEASE_IMGPATH_CARD}/$nameId.jpg")
+    private fun createImgCache(
+        assetMgr: AssetManager,
+        fileOta: File,
+        diskCache: SimpleDiskLruCache,
+        nameId: String,
+        sizeImages: Int
+    ) {
+        val imgFileOnOta = File(fileOta, nameId)
+        val stream =
+            if (imgFileOnOta.exists()) FileInputStream(imgFileOnOta)
+            else assetMgr.open("${PublicConfig.Assets.LIST_DISEASE_IMGPATH_CARD}/$nameId.jpg")
         val bitmap = DecodeBitmapHelper.decodeBitmapStream(stream)
         val scaledBitmap = Bitmap.createScaledBitmap(bitmap, sizeImages, sizeImages, false)
         stream.close()

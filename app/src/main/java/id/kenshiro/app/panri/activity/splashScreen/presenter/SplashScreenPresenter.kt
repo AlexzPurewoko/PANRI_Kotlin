@@ -25,6 +25,7 @@ import id.kenshiro.app.panri.plugin.CoroutineContextProvider
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import java.io.File
 import java.lang.ref.WeakReference
 
 class SplashScreenPresenter(
@@ -38,7 +39,10 @@ class SplashScreenPresenter(
     private var dbCondition: Int = 0
     fun runAllCommands() {
         GlobalScope.launch(contextPool.main) {
-            ctxWeak.get()?.cacheDir!!.mkdir()
+            ctxWeak.get()?.also {
+                it.cacheDir.mkdir()
+                File(it.filesDir, PublicConfig.PathConfig.OTA_PATCH_UPDATES_PATH).mkdir()
+            }
             modelWeak.get()?.onStartUi()
 
             // gets App Usage
@@ -53,11 +57,14 @@ class SplashScreenPresenter(
                             modelWeak.get()?.onLoadFailed(Exception("Cannot start loading!, ctxWeak == null"))
                             return@launch
                         } else {
-                            val managedThreadPool = AcquireCache.configure(ctxWeak.get()!!)
+                            val acquireCachePack = AcquireCache.configure(ctxWeak.get()!!)
+                            val managedThreadPool = acquireCachePack.managedThreadPool
+                            val diskLruCache = acquireCachePack.diskLruCache
                             StartServices.start(ctxWeak.get())
                             while (!managedThreadPool.isAllTaskFinished()) {
                                 delay(500)
                             }
+                            diskLruCache.close()
                         }
 
                     }
@@ -68,7 +75,11 @@ class SplashScreenPresenter(
                     FileOperations.scheduleExtract(ctxWeak.get())
 
                     // Acquiring cache and wait all caching threads until finished
-                    val managedThreadPool = AcquireCache.configure(ctxWeak.get()!!)
+
+                    val acquireCachePack = AcquireCache.configure(ctxWeak.get()!!)
+                    val managedThreadPool = acquireCachePack.managedThreadPool
+                    val diskLruCache = acquireCachePack.diskLruCache
+
                     // configures all data
                     DataConf.configureData(ctxWeak.get())
 
@@ -76,13 +87,18 @@ class SplashScreenPresenter(
 
                     while (!managedThreadPool.isAllTaskFinished())
                         delay(SplashScreenParams.DELAY_WAITING_THREADS)
+                    diskLruCache.close()
                 }
                 PublicConfig.AppFlags.APP_IS_FIRST_USAGE -> {
                     // schedule extracting
                     FileOperations.scheduleExtract(ctxWeak.get())
 
                     // Acquiring cache and wait all caching threads until finished
-                    val managedThreadPool = AcquireCache.configure(ctxWeak.get()!!)
+
+                    val acquireCachePack = AcquireCache.configure(ctxWeak.get()!!)
+                    val managedThreadPool = acquireCachePack.managedThreadPool
+                    val diskLruCache = acquireCachePack.diskLruCache
+
                     // configures all data
                     DataConf.configureData(ctxWeak.get())
 
@@ -90,7 +106,7 @@ class SplashScreenPresenter(
 
                     while (!managedThreadPool.isAllTaskFinished())
                         delay(SplashScreenParams.DELAY_WAITING_THREADS)
-
+                    diskLruCache.close()
                 }
             }
             modelWeak.get()?.onLoadingFinished(appCondition == PublicConfig.AppFlags.APP_IS_FIRST_USAGE)

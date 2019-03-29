@@ -15,5 +15,5 @@ import java.io.IOException
 
 interface CreateCache {
     @Throws(IOException::class)
-    fun create(dir: File, ctx: Context?, diskCache: SimpleDiskLruCache)
+    fun create(dir: File, otaUpdatesDisk: File, ctx: Context?, diskCache: SimpleDiskLruCache)
 }

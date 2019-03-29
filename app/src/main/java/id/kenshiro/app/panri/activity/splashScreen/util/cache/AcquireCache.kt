@@ -11,7 +11,7 @@ import id.kenshiro.app.panri.params.PublicConfig
 import java.io.File
 
 object AcquireCache {
-    fun configure(ctx: Context): ManagedThreadPool {
+    fun configure(ctx: Context): AcquireCachePack {
         var threadName: String? = null
         val managedThreadPool = ManagedThreadPool.getInstance()
         managedThreadPool.setBgThreadCallback(object : BgThreadFactoryCallback {
@@ -33,18 +33,22 @@ object AcquireCache {
             CreateImgCacheOnLDiseases()
         )
         val fileSource = File(ctx.cacheDir, PublicConfig.PathConfig.IMAGE_CACHE_PATHNAME)
+        val otaImageFile = File(
+            ctx.filesDir,
+            "${PublicConfig.PathConfig.OTA_PATCH_UPDATES_PATH}/${PublicConfig.PathConfig.IMAGE_CACHE_PATHNAME}"
+        )
+        otaImageFile.mkdir()
         fileSource.mkdirs()
         val diskLruCache = SimpleDiskLruCache.getsInstance(fileSource)
 
         for (classCache in listCacheOp) {
             val runnable = Runnable {
-                classCache.create(ctx.cacheDir, ctx, diskLruCache)
+                classCache.create(ctx.cacheDir, otaImageFile, ctx, diskLruCache)
             }
             threadName = "Thread${classCache.javaClass.name}"
             managedThreadPool.addRunnable(runnable)
         }
-        diskLruCache.close()
-        return managedThreadPool
+        return AcquireCachePack(managedThreadPool, diskLruCache)
     }
 
     fun validateImgCache(ctx: Context?): Boolean {
@@ -54,3 +58,8 @@ object AcquireCache {
         return false
     }
 }
+
+data class AcquireCachePack(
+    val managedThreadPool: ManagedThreadPool,
+    val diskLruCache: SimpleDiskLruCache
+)

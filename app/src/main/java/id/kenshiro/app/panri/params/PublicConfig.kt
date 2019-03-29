@@ -12,6 +12,7 @@ object PublicConfig {
 
     object PathConfig {
         const val IMAGE_CACHE_PATHNAME = "images"
+        const val OTA_PATCH_UPDATES_PATH = "ota_updates"
     }
 
     object Config {

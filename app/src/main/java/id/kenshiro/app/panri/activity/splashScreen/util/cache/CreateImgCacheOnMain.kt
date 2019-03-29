@@ -16,7 +16,9 @@ import java.io.File
 import java.io.IOException
 
 class CreateImgCacheOnMain : CreateCache {
-    override fun create(dir: File, ctx: Context?, diskCache: SimpleDiskLruCache) {
+    override fun create(dir: File, otaUpdatesDisk: File, ctx: Context?, diskCache: SimpleDiskLruCache) {
+        // we haven't cover update for this section
+
         if (ctx == null) return
         val keyImageLists = arrayOf(
             "viewpager_area_1",
