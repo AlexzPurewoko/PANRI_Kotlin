@@ -10,6 +10,24 @@ package id.kenshiro.app.panri.params
 
 object PublicConfig {
 
+    object DataFileConf {
+        const val ROOT_CONFIG = "RootConfig"
+        const val MIN_APK_VERSION = "minApkVersion"
+        const val DATA_VERSION = "dataVersion"
+        const val APK_VERSION = "apkVersion"
+        const val PARAMS_DESCRIPTION = "updateDescription"
+        const val PARAMS_FILE_TO_DOWNLOAD = "fileToBeDownload"
+        const val PARAMS_PATH_FILE_CONFIG = "pathFileConfig"
+        const val DATA_CLOUD_PATH = "pathFolder"
+        const val SUPPORTED_APK_VERSION = "supportedApkVersion"
+        const val PARAMS_NAME_FILE_TO_DOWNLOAD = "nameFileToDownload"
+    }
+
+    object CloudConfig {
+        const val DATA_CONF_FILE_NAME = "data_schedule_update.conf"
+        const val AVAILADS_CONF_FILENAME = "available_ads.conf"
+
+    }
     object PathConfig {
         const val IMAGE_CACHE_PATHNAME = "images"
         const val OTA_PATCH_UPDATES_PATH = "ota_updates"

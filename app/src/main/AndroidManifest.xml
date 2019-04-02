@@ -19,8 +19,15 @@
             android:screenOrientation="portrait"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".activity.tutorialFirstUse.TutorialFirstUse"
-                  android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        <service
+                android:name=".services.checkUpdate.CheckUpdateService"
+                android:enabled="true"
+                android:exported="true">
+        </service>
+
+        <activity
+                android:name=".activity.tutorialFirstUse.TutorialFirstUse"
+                android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
             </intent-filter>

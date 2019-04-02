@@ -21,7 +21,7 @@ import java.io.InputStream
  * [param-n] = [values-n]
  */
 
-class PropertiesData(fileSource: File?) : Closeable {
+class PropertiesData(private val inputStream: InputStream) : Closeable {
 
     companion object {
         private const val ASSIGN_PARAMS = '='
@@ -35,24 +35,18 @@ class PropertiesData(fileSource: File?) : Closeable {
         private const val ASSIGN_VALUES_MODE: Int = 0x6a
     }
 
-    private var inputStream: InputStream? = null
     private var mapProperties: HashMap<String, HashMap<String, String?>?>? = null
 
-    init {
-        if (fileSource != null && !fileSource.isDirectory) {
-            inputStream = FileInputStream(fileSource)
-        }
-    }
+    constructor(fileSource: File) : this(FileInputStream(fileSource))
 
 
     @Synchronized
-    fun attachFromFile(): Boolean {
-        if (inputStream == null) return false
+    fun attach(): Boolean {
 
         if (mapProperties != null) mapProperties?.clear()
         mapProperties = HashMap()
 
-        var read = 0
+        var read: Int
         var mode = 0
 
         val sbuf = StringBuffer()
@@ -60,7 +54,7 @@ class PropertiesData(fileSource: File?) : Closeable {
         val valuesBuf = StringBuffer()
         val hashMapBuf = HashMap<String, String?>()
         while (true) {
-            read = inputStream?.read() ?: break
+            read = inputStream.read()
             if (read == -1) {
                 if (!sbuf.isEmpty()) {
                     mapProperties?.put(sbuf.toString(), hashMapBuf.clone() as HashMap<String, String?>?)
@@ -85,11 +79,11 @@ class PropertiesData(fileSource: File?) : Closeable {
                     // do nothing
                 }
                 COMMENT_INDICATOR -> {
-                    read = inputStream?.read()!!
+                    read = inputStream.read()
                     if (read.toChar() == COMMENT_INDICATOR) {
                         // skipes until breakline
                         while (true) {
-                            read = inputStream?.read()!!
+                            read = inputStream.read()
                             if ((read == -1) or (read.toChar() == BREAKLINE))
                                 break
                         }
@@ -103,12 +97,12 @@ class PropertiesData(fileSource: File?) : Closeable {
                 VALUES_INDICATOR -> {
                     if (mode == ASSIGN_VALUES_MODE) {
                         while (true) {
-                            read = inputStream?.read() ?: break
+                            read = inputStream.read()
                             if (read == -1) break
                             if (read.toChar() == VALUES_INDICATOR)
                                 break
                             else if (read.toChar() == '\\') {
-                                read = inputStream?.read() ?: break
+                                read = inputStream.read()
                                 if (read == -1) break
                                 valuesBuf.append(read.toChar())
                             } else
@@ -169,7 +163,7 @@ class PropertiesData(fileSource: File?) : Closeable {
 
 
     override fun close() {
-        inputStream?.close()
+        inputStream.close()
         mapProperties?.clear()
     }
 }

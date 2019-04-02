@@ -38,7 +38,7 @@ class PropertiesDataTest {
     @Test
     fun runTest() {
         val data = PropertiesData(File("testProperties.prop"))
-        data.attachFromFile()
+        data.attach()
         testAll(data)
 
         data.close()

@@ -17,12 +17,16 @@ interface ReadConfigUpdateApi {
      * implement this interface
      *
      * @param newConfig New config of File that given from internet
-     * @param oldConfig Old configuration file
+     * @param oldConfig Old configuration map : Overrides
+     *      apkVersion = ""
+     *      dataVersion = ""
+     *
+     *      These parameters could be added into map
      * @param ctx Application context
      *
      * @return void
      */
-    fun readconfig(newConfig: File?, oldConfig: File, ctx: Context?)
+    fun readConfig(newConfig: File?, oldConfig: HashMap<String, String>, ctx: Context?)
 
     /**
      * Check whether data should be upgrade or not, and return
@@ -39,7 +43,7 @@ interface ReadConfigUpdateApi {
      * Calculate the files that should be download and update,
      * and also configuration
      *
-     * @param void
+     * @noparam
      * @return null if any Npe
      */
     fun calculateUpdate(): HashMap<String, String?>?
