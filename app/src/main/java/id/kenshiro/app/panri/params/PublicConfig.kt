@@ -8,6 +8,8 @@
 
 package id.kenshiro.app.panri.params
 
+import android.os.Process
+
 object PublicConfig {
 
     object DataFileConf {
@@ -60,6 +62,7 @@ object PublicConfig {
         const val DB_IS_NEWER_VERSION = 0xaab
         const val DB_IS_OLDER_IN_APP_VERSION = 0xaaf
         const val DB_IS_SAME_VERSION = 0xaca
+        const val DB_REQUIRE_NEWER_APP_VERSION = 0xbbca
     }
 
     object KeyExtras {
@@ -80,6 +83,17 @@ object PublicConfig {
         const val KEY_AUTOCHECKUPDATE_APPDATA = KeyExtras.KEY_AUTOCHECKUPDATE_APPDATA
         const val KEY_SHARED_DATA_CURRENT_IMG_NAVHEADER = "key_nav"
         const val KEY_VERSION_BOOL_NEW = "is_db_available_new_version"
-        const val KEY_VERSION_ON_CLOUD = "db_version_on_cloud"
+        const val KEY_DATA_VERSION_ON_CLOUD = "db_version_on_cloud"
+        const val KEY_DB_REQUP_DESCRIPTION = DataFileConf.PARAMS_DESCRIPTION
+        const val KEY_DB_REQUP_LIST_FILETODL = DataFileConf.PARAMS_FILE_TO_DOWNLOAD
+        const val KEY_DB_REQUP_LIST_FILETYPE = DataFileConf.PARAMS_PATH_FILE_CONFIG
+        const val KEY_DB_REQUP_LIST_FILENAME = DataFileConf.PARAMS_NAME_FILE_TO_DOWNLOAD
+
+
+    }
+
+    object ServiceThrPriority {
+        const val ON_CHECKUPDATE_SERVICE = Process.THREAD_PRIORITY_BACKGROUND + Process.THREAD_PRIORITY_LESS_FAVORABLE
+        const val ON_ADS_SERVICES = Process.THREAD_PRIORITY_BACKGROUND + Process.THREAD_PRIORITY_MORE_FAVORABLE
     }
 }
