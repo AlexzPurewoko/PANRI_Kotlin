@@ -1,0 +1,52 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "f1ce967649e3598a383fad50ebbb3572",
+    "entities": [
+      {
+        "tableName": "journal_download",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id_num` INTEGER NOT NULL, `state` TEXT, `file_to_download` TEXT, `file_to_save` TEXT, PRIMARY KEY(`id_num`))",
+        "fields": [
+          {
+            "fieldPath": "id_num",
+            "columnName": "id_num",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "state",
+            "columnName": "state",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "fileToDownload",
+            "columnName": "file_to_download",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "fileToSave",
+            "columnName": "file_to_save",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id_num"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"f1ce967649e3598a383fad50ebbb3572\")"
+    ]
+  }
+}

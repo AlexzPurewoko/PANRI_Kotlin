@@ -14,7 +14,7 @@ interface ApplyAdsUpdatesApi {
      * Select files to be downloaded '
      *
      * @param ctx Application Context
-     * @param config Configuration Map
+     * @param config Configuration Map 
      * @noreturn
      */
     fun applyItemToBeDownloaded(ctx: Context?, config: HashMap<String, HashMap<String, String?>?>?)

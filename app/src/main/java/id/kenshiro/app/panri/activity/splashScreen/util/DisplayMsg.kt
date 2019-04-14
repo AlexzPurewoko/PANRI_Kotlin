@@ -14,7 +14,7 @@ object DisplayMsg {
             .setTitle(SplashScreenParams.TITLE_LOAD_ERROR_MSG)
             .setIcon(R.mipmap.ic_launcher)
             .setMessage("I'm Sorry :( \n\nError while try to load app -> $ex ")
-            .setPositiveButton(SplashScreenParams.DIALOG_BTN_RESTART) { dialog, which ->
+            .setPositiveButton(SplashScreenParams.DIALOG_BTN_RESTART) { dialog, _ ->
                 dialog.cancel()
                 val intent = ctx.packageManager.getLaunchIntentForPackage(ctx.packageName)
                     .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
@@ -22,7 +22,7 @@ object DisplayMsg {
                 activity.finish()
                 ctx.startActivity(intent)
             }
-            .setNegativeButton(SplashScreenParams.DIALOG_BTN_QUIT) { dialog, which ->
+            .setNegativeButton(SplashScreenParams.DIALOG_BTN_QUIT) { dialog, _ ->
                 dialog.dismiss()
                 activity.finish()
             }

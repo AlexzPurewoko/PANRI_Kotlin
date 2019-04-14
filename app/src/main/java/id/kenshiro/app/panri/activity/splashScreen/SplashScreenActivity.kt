@@ -76,7 +76,7 @@ class SplashScreenActivity : AppCompatActivity(), SplashScreenModel {
     }
 
     override fun onFinished(packData: Bundle) {
-        var mIntent: Intent? = null
+        var mIntent: Intent?
         when (packData.getInt(PublicConfig.KeyExtras.APP_CONDITION_KEY)) {
             PublicConfig.AppFlags.APP_IS_FIRST_USAGE -> {
                 btnLanjut.enable()

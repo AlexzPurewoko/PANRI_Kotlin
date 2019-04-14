@@ -6,5 +6,4 @@ object CheckUpdateDataParams {
     const val MESSAGE_CONNECTION_REFUSED = 0b010111
     const val MESSAGE_SERVICECONTEXT_REACHED_NULL = 0b011101_1
     const val MESSAGE_TASK_INTERRUPTED = 0b10111_10
-
 }

@@ -1,0 +1,46 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "61e12abf3416dbe40d6c0093b260a547",
+    "entities": [
+      {
+        "tableName": "gambar_penyakit",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`no` INTEGER NOT NULL, `path_gambar` TEXT, `count_img` TEXT, PRIMARY KEY(`no`))",
+        "fields": [
+          {
+            "fieldPath": "no",
+            "columnName": "no",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "pathImage",
+            "columnName": "path_gambar",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "countAvailImg",
+            "columnName": "count_img",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "no"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"61e12abf3416dbe40d6c0093b260a547\")"
+    ]
+  }
+}

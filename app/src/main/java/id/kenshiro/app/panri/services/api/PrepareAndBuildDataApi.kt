@@ -26,15 +26,16 @@ interface PrepareAndBuildDataApi {
      * throught broadcastReceiver
      *
      * @param ctx Application Context
+     * @param placeIn The place of ads for beeing placed
      * @return void
      */
-    fun prepareData(ctx: Context?)
+    fun prepareData(ctx: Context?, placeIn: Int)
 
     /**
      * Build and pack the data into Array of AdsData Model
      *
      * @noparams
-     * @return Array<AdsData> the array of Ads Data
+     * @return List<AdsData> the List of Ads Data
      */
-    fun buildAndFinish(): Array<AdsData>
+    fun buildAndFinish(): List<AdsData>?
 }

@@ -13,13 +13,16 @@ object FileOperations {
         // place commands here
 
         val dirs = arrayOf<File>(
+            ctx.getDatabasePath(PublicConfig.Assets.DB_ASSET_NAME).parentFile,
             ctx.getDatabasePath(PublicConfig.Assets.DB_ASSET_NAME).parentFile
         )
         val streams = arrayOf<InputStream>(
-            ctx.assets.open(PublicConfig.Assets.DB_ASSET_NAME)
+            ctx.assets.open(PublicConfig.Assets.DB_ASSET_NAME),
+            ctx.assets.open(PublicConfig.Assets.DB_ADS_JOURNAL_NAME)
         )
         val extractFunc = arrayOf<FileExtractions>(
-            DBExtract()
+            DBExtract(),
+            AdsJournalDBExtract()
         )
 
         // operate

@@ -13,7 +13,7 @@ import androidx.room.RoomDatabase
 import id.kenshiro.app.panri.databases.dao.ListImgDiseaseFunc
 import id.kenshiro.app.panri.databases.entity.ListImgDisease
 
-@Database(entities = arrayOf(ListImgDisease::class), version = 1)
+@Database(entities = [ListImgDisease::class], version = 1)
 abstract class ListImgDiseaseDb : RoomDatabase() {
     abstract fun getListImgFunc(): ListImgDiseaseFunc
 }

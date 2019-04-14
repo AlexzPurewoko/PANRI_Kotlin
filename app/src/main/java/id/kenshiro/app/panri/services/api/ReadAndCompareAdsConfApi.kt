@@ -25,7 +25,7 @@ interface ReadAndCompareAdsConfApi {
      *
      * @return true if same false if not
      */
-    fun isSameVersion(): Boolean
+    fun isReqUpdate(): Boolean
 
     /**
      * Get configuration from a sub-class field.

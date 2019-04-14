@@ -20,6 +20,11 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
         <service
+                android:name=".services.adsService.AdsService"
+                android:enabled="true"
+                android:exported="true">
+        </service>
+        <service
                 android:name=".services.checkUpdate.CheckUpdateService"
                 android:enabled="true"
                 android:exported="true">

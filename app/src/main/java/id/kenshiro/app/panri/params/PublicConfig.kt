@@ -28,11 +28,13 @@ object PublicConfig {
     object CloudConfig {
         const val DATA_CONF_FILE_NAME = "data_schedule_update.conf"
         const val AVAILADS_CONF_FILENAME = "available_ads.conf"
+        const val AVAILADS_CONF_FILENAME_ALIAS = "temp_${CloudConfig.AVAILADS_CONF_FILENAME}"
 
     }
     object PathConfig {
         const val IMAGE_CACHE_PATHNAME = "images"
         const val OTA_PATCH_UPDATES_PATH = "ota_updates"
+        const val ADS_FOLDER_NAME = "ads"
     }
 
     object Config {
@@ -42,6 +44,7 @@ object PublicConfig {
 
     object Assets {
         const val DB_ASSET_NAME = "database_penyakitpadi.db"
+        const val DB_ADS_JOURNAL_NAME = "ads_journal.db"
         const val GECKO_ASSETS_FONT = "Gecko_PersonalUseOnly.ttf"
         const val COMIC_SANS_MS3_FONT = "Comic_Sans_MS3.ttf"
         const val RIFFIC_BOLD_ASSETS_FONT = "RifficFree-Bold.ttf"
@@ -95,5 +98,26 @@ object PublicConfig {
     object ServiceThrPriority {
         const val ON_CHECKUPDATE_SERVICE = Process.THREAD_PRIORITY_BACKGROUND + Process.THREAD_PRIORITY_LESS_FAVORABLE
         const val ON_ADS_SERVICES = Process.THREAD_PRIORITY_BACKGROUND + Process.THREAD_PRIORITY_MORE_FAVORABLE
+    }
+
+    object AdsConfig {
+        const val PLACE_ADS_ON_MAINACTIVITY = 0x5fea
+        const val PLACE_ADS_ON_HOWTORESOLVE = 0xafa2
+        const val ROOT_CONFIG = DataFileConf.ROOT_CONFIG
+        const val PARAMS_PLACE_IN = "placedIn"
+        const val PARAMS_START_ADS_DATE = "startAdsDate"
+        const val PARAMS_END_ADS_DATE = "endAdsDate"
+        const val PARAMS_ADS_NAME = "adsName"
+        const val PARAMS_URL = "url"
+        const val PARAMS_URL_TYPE = "urlType"
+        const val PARAMS_IMAGES_PATH = "imagesPath"
+        const val PARAMS_DESCRIPTION = "description"
+        const val PARAMS_PUBLISHER = "publisher"
+        const val PARAMS_DURATION = "duration"
+        const val PARAMS_ICON_PUBLISHER = "iconPublisher"
+
+
+        const val VALUE_ICON_PUBLISHER_NONE = "undefined"
+        const val PARAMS_VERSION = "version"
     }
 }
