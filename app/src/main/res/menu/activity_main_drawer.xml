@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="none">
+        <item
+            android:id="@+id/nav_gallery"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Galeri" />
+        <item
+            android:id="@+id/nav_about"
+            android:icon="@android:drawable/ic_menu_info_details"
+            android:title="Tentang Kami" />
+        <item
+            android:id="@+id/update_db"
+            android:icon="@drawable/ic_icon_update_avail"
+            android:title="Update Data Aplikasi" />
+        <item
+            android:id="@+id/nav_out"
+            android:icon="@drawable/baseline_mobile_screen_share_black"
+            android:title="Keluar Aplikasi" />
+    </group>
+
+    <item android:title="Komunikasi">
+        <menu>
+            <!--<item
+                android:id="@+id/send_report"
+                android:icon="@drawable/baseline_bug_report_black"
+                android:title="Kirim Masukan" />-->
+            <item
+                android:id="@+id/nav_share"
+                android:icon="@drawable/ic_menu_share"
+                android:title="Share" />
+            <item
+                android:id="@+id/nav_rate"
+                android:icon="@drawable/baseline_star_black"
+                android:title="Beri Nilai" />
+        </menu>
+    </item>
+
+</menu>

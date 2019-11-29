@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="actsplash_dimen_img_wh">190dp</dimen>
+    <dimen name="actmain_dimen_viewpager_height">180dp</dimen>
+    <dimen name="actsplash_dimen_margintopimg">30dp</dimen>
+    <dimen name="acttutor_dimen_btn_mulai_frag4">230dp</dimen>
+    <dimen name="frag3_dimen_marginTopLyt">50dp</dimen>
+    <dimen name="frag3_dimen_txtbesar">16sp</dimen>
+    <dimen name="frag3_dimen_txtkecil">11sp</dimen>
+    <dimen name="actsplash_dimen_loading_wh">50dp</dimen>
+    <dimen name="actmain_dimen_opimg_incard_wh">40dp</dimen>
+    <dimen name="margin_img_penyakit">6dp</dimen>
+    <dimen name="size_text_incard">10sp</dimen>
+    <dimen name="layout_onnotselected_padd_5">5dp</dimen>
+    <dimen name="layout_onnotselected_imgpetani_mikir_width">126dp</dimen>
+    <dimen name="layout_onnotselected_imgpetani_mikir_height">120dp</dimen>
+    <dimen name="layout_onnotselected_marginleft_90">90dp</dimen>
+    <dimen name="layout_onnotselected_marginleft_20">20dp</dimen>
+    <dimen name="layout_onnotselecte_textsize_10sp">10sp</dimen>
+    <dimen name="layout_onnotselected_contentpaddingcard">2dp</dimen>
+    <dimen name="dialogshdup_margin_all">22dp</dimen>
+    <dimen name="content_imggrid_padding">10dp</dimen>
+</resources>

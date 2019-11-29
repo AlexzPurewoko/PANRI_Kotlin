@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/adapter_id_imgdiag_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true"
+    android:weightSum="2">
+
+    <Button
+        android:id="@+id/actimgdiagnose_buttonya"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="@drawable/ic_btn_blue"
+        android:text="YA"
+        android:textColor="@android:color/white" />
+
+    <Button
+        android:id="@+id/actimgdiagnose_buttontidak"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="@drawable/ic_btn_red"
+        android:text="TIDAK"
+        android:textColor="@android:color/white" />
+</LinearLayout>

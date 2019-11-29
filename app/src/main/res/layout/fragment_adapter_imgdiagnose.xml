@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="10dp"
+    android:layout_marginTop="10dp"
+    android:layout_marginRight="10dp"
+    android:foreground="?attr/selectableItemBackground"
+    app:cardBackgroundColor="#ffffffff"
+    app:cardCornerRadius="4dp"
+    app:cardElevation="4dp"
+    app:cardUseCompatPadding="true"
+    app:contentPadding="5dp">
+
+    <LinearLayout
+        android:id="@+id/adapterdim_basecontent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/adapterdim_upper"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:orientation="vertical"
+            android:padding="8dp">
+
+            <TextView
+                android:id="@+id/actimgdiagnose_judulpenyakit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/white"
+                android:textSize="18sp" />
+
+        </LinearLayout>
+        <!-- image view pager -->
+        <RelativeLayout
+            android:id="@+id/actimgdiagnose_section_large"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/actmain_dimen_viewpager_height">
+
+            <com.mizzugi.kensiro.app.panri.adapter.CustomViewPager
+                android:id="@+id/actimgdiagnose_id_viewpagerimg"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <LinearLayout
+                android:id="@+id/actimgdiagnose_id_layoutIndicators"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="bottom|right"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:gravity="bottom|right|end"
+                android:orientation="horizontal" />
+
+        </RelativeLayout>
+        <!-- TextView -->
+        <TextView
+            android:id="@+id/imgdiagnose_ciriciri"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp" />
+        <!--<WebView
+            android:id="@+id/actimgdiagnose_ciriciri"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" /> -->
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

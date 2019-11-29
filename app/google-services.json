@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1048135401705",
+    "firebase_url": "https://panri-a5eaa.firebaseio.com",
+    "project_id": "panri-a5eaa",
+    "storage_bucket": "panri-a5eaa.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1048135401705:android:513c4b3c1fab3cdf667078",
+        "android_client_info": {
+          "package_name": "com.mizzugi.kensiro.app.panri"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1048135401705-fqtct791pn5m8fjmfjipl8hpg99bkgmd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBptXwsH_PO-G5Z4YcuMKHat1BWIeZfbz0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1048135401705-fqtct791pn5m8fjmfjipl8hpg99bkgmd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
